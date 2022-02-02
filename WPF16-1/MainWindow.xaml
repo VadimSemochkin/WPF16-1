@@ -1,0 +1,96 @@
+﻿<Window x:Class="WPF16_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF16_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500">
+    <Window.Resources>
+        <PathGeometry x:Key="path1" >
+            <PathFigure StartPoint="200,100"  IsClosed="True">
+                <LineSegment Point="200,380"/>
+            </PathFigure>
+        </PathGeometry>
+    </Window.Resources>
+    <Canvas>
+
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="69.829" Margin="59.757,428.408,0,0" Stroke="Black" VerticalAlignment="Top" Width="321.822" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-32.375"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="22.136"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse Height="34" 
+                 Canvas.Left="180" Canvas.Top="447" 
+                 Width="120" 
+                 Fill="#B22B2323">
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="Height"
+                                Duration="0:0:2"
+                                DecelerationRatio="0.5"
+                                AccelerationRatio="0.5"
+                                RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame KeyTime="0%" Value="34"/>
+                                <LinearDoubleKeyFrame KeyTime="50%" Value="17"/>
+                                <LinearDoubleKeyFrame KeyTime="99%" Value="34"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames
+                                Storyboard.TargetProperty="Width"
+                                Duration="0:0:2"
+                                DecelerationRatio="0.5"
+                                AccelerationRatio="0.5"
+                                RepeatBehavior="Forever">
+                                <LinearDoubleKeyFrame KeyTime="0%" Value="120"/>
+                                <LinearDoubleKeyFrame KeyTime="50%" Value="60"/>
+                                <LinearDoubleKeyFrame KeyTime="99%" Value="120"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left" 
+                 Height="89.563"
+                 Stroke="Black" 
+                 VerticalAlignment="Top" 
+                 Width="89.563" 
+                 Canvas.Left="200" Canvas.Top="100">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.811,0.18">
+                    <GradientStop Color="#FFDE2A2A" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.102"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                Duration="0:0:2"
+                                DecelerationRatio="0.5"
+                                AccelerationRatio="0.5"
+                                RepeatBehavior="Forever"
+                                PathGeometry="{StaticResource path1}"
+                                Source="Y"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+    </Canvas>
+</Window>
